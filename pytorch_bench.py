@@ -1,12 +1,10 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
 # %%
-from IPython import get_ipython
 
 # %%
-get_ipython().run_line_magic('matplotlib', 'inline')
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # 
 # Training a Classifier
 # =====================
@@ -70,7 +68,7 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # The output of torchvision datasets are PILImage images of range [0, 1].
 # We transform them to Tensors of normalized range [-1, 1].
 # <div class="alert alert-info"><h4>Note</h4><p>If running on Windows and you get a BrokenPipeError, try setting
@@ -96,7 +94,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=4,
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # Let us show some of the training images, for fun.
 # 
 # 
@@ -112,7 +110,7 @@ def imshow(img):
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
-    plt.show()
+    #plt.show()
 
 
 # get some random training images
@@ -124,7 +122,7 @@ imshow(torchvision.utils.make_grid(images))
 # print labels
 print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # 2. Define a Convolutional Neural Network
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Copy the neural network from the Neural Networks section before and modify it to
@@ -159,7 +157,7 @@ class Net(nn.Module):
 
 net = Net()
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # 3. Define a Loss function and optimizer
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Let's use a Classification Cross-Entropy loss and SGD with momentum.
@@ -172,7 +170,7 @@ import torch.optim as optim
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # 4. Train the network
 # ^^^^^^^^^^^^^^^^^^^^
 # 
@@ -208,7 +206,7 @@ for epoch in range(2):  # loop over the dataset multiple times
 
 print('Finished Training')
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # Let's quickly save our trained model:
 # 
 # 
@@ -217,7 +215,7 @@ null.tpl [markdown]
 PATH = './cifar_net.pth'
 torch.save(net.state_dict(), PATH)
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # See `here <https://pytorch.org/docs/stable/notes/serialization.html>`_
 # for more details on saving PyTorch models.
 # 
@@ -243,7 +241,7 @@ images, labels = dataiter.next()
 imshow(torchvision.utils.make_grid(images))
 print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # Next, let's load back in our saved model (note: saving and re-loading the model
 # wasn't necessary here, we only did it to illustrate how to do so):
 # 
@@ -253,7 +251,7 @@ null.tpl [markdown]
 net = Net()
 net.load_state_dict(torch.load(PATH))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # Okay, now let us see what the neural network thinks these examples above are:
 # 
 # 
@@ -261,7 +259,7 @@ null.tpl [markdown]
 # %%
 outputs = net(images)
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # The outputs are energies for the 10 classes.
 # The higher the energy for a class, the more the network
 # thinks that the image is of the particular class.
@@ -275,7 +273,7 @@ _, predicted = torch.max(outputs, 1)
 print('Predicted: ', ' '.join('%5s' % classes[predicted[j]]
                               for j in range(4)))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # The results seem pretty good.
 # 
 # Let us look at how the network performs on the whole dataset.
@@ -296,7 +294,7 @@ with torch.no_grad():
 print('Accuracy of the network on the 10000 test images: %d %%' % (
     100 * correct / total))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # That looks way better than chance, which is 10% accuracy (randomly picking
 # a class out of 10 classes).
 # Seems like the network learnt something.
@@ -325,7 +323,7 @@ for i in range(10):
     print('Accuracy of %5s : %2d %%' % (
         classes[i], 100 * class_correct[i] / class_total[i]))
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # Okay, so what next?
 # 
 # How do we run these neural networks on the GPU?
@@ -347,7 +345,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 print(device)
 
-null.tpl [markdown]
+#null.tpl [markdown]
 # The rest of this section assumes that ``device`` is a CUDA device.
 # 
 # Then these methods will recursively go over all modules and convert their

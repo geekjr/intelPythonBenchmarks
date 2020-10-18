@@ -1,2 +1,8 @@
 .DS_store
 *.csv
+*.gz
+*.html
+*.pyc
+*.meta
+data/cifar-10-batches-py/*
+*.pth
