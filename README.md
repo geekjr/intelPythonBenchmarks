@@ -1,3 +1,4 @@
-## Tensorflow demo taken from [this](https://www.tensorflow.org/tutorials/keras/classification) offical documentation page
-## PyTorch demo taken from [this ](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py)offical documentation page
-## Sklean demo taken from [this ](https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_digits.html) offical documentation page
+## Tensorflow benchmark taken from [this](https://www.tensorflow.org/tutorials/keras/classification) offical documentation page. 
+## PyTorch benchmark taken from [this ](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py)offical documentation page. 
+## Sklean benchmark taken from [this ](https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_digits.html) offical documentation page. 
+## Pandas benchmark was loading in `master_data_version1.csv` from [this ](https://www.kaggle.com/gyejr95/league-of-legendslol-ranked-games-2020-ver1?select=match_data_version1.csv) dataset with the `read_csv` function. 
