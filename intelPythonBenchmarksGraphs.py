@@ -61,3 +61,19 @@ plt.title('PyTorch Benchmarks with Intel Python')
 plt.savefig('pytorch.png')
 if args['show'] == "true":
     plt.show()
+
+df_pan = df.loc[df['Test'] == 'Pandas']
+
+y_data = [float(df_pan['Intel']), float(df_pan['Normal'])]
+plt.figure(figsize=(20, 9), dpi=100)
+graph = plt.barh(['Intel Python', 'Python'], y_data)
+for index, value in enumerate(y_data):
+    plt.text(value, index, str(value))
+graph[0].set_color('g')
+graph[1].set_color('r')
+plt.ylabel('Version of Python')
+plt.xlabel('Time in seconds')
+plt.title('Pandas Benchmarks with Intel Python')
+plt.savefig('pandas.png')
+if args['show'] == "true":
+    plt.show()
