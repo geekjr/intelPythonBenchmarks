@@ -6,7 +6,7 @@ plt.style.use('fivethirtyeight')
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-s", "--show", required=True,
-	help="to show or not")
+                help="to show or not")
 args = vars(ap.parse_args())
 
 df = pd.read_csv('./intelPythonBenchmarks.csv')
