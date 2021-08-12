@@ -25,17 +25,16 @@ silhouette   silhouette coefficient
 =========== ========================================================
 
 """
+from sklearn.preprocessing import scale
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_digits
+from sklearn.cluster import KMeans
+from sklearn import metrics
+import matplotlib.pyplot as plt
+import numpy as np
+from time import time
 print(__doc__)
 
-from time import time
-import numpy as np
-import matplotlib.pyplot as plt
-
-from sklearn import metrics
-from sklearn.cluster import KMeans
-from sklearn.datasets import load_digits
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import scale
 
 np.random.seed(42)
 
@@ -65,10 +64,11 @@ def bench_k_means(estimator, name, data):
              metrics.completeness_score(labels, estimator.labels_),
              metrics.v_measure_score(labels, estimator.labels_),
              metrics.adjusted_rand_score(labels, estimator.labels_),
-             metrics.adjusted_mutual_info_score(labels,  estimator.labels_),
+             metrics.adjusted_mutual_info_score(labels, estimator.labels_),
              metrics.silhouette_score(data, estimator.labels_,
                                       metric='euclidean',
                                       sample_size=sample_size)))
+
 
 bench_k_means(KMeans(init='k-means++', n_clusters=n_digits, n_init=10),
               name="k-means++", data=data)
